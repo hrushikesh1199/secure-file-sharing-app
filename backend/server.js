@@ -3,12 +3,14 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
+const helmet = require("helmet");
 
 
 dotenv.config();
 const app = express();
 
 // Middleware
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
